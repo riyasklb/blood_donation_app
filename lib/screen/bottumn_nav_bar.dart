@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:blood_donation_app/screen/donation_history_sceen.dart';
 import 'package:blood_donation_app/screen/donation_location_search_screen.dart';
 import 'package:blood_donation_app/screen/donation_sceduling_screen.dart';
+import 'package:blood_donation_app/screen/home_scree.dart';
 import 'package:blood_donation_app/screen/notification_screen.dart';
 import 'package:blood_donation_app/screen/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,14 +20,14 @@ class _BloodDonationHomeScreenState extends State<BloodDonationHomeScreen> {
   int _bottomNavIndex = 0;
 
   final iconList = <IconData>[
-    Icons.schedule,
+    Icons.home,
     Icons.location_on,
     Icons.history,
     Icons.person,
   ];
 
   final List<Widget> _screens = [
-    DonationSchedulingScreen(),
+    HomeScreen(),
     LocationSearchScreen(),
     DonationHistoryScreen(),
     ProfileScreen(),
@@ -42,7 +43,7 @@ class _BloodDonationHomeScreenState extends State<BloodDonationHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(automaticallyImplyLeading: false,
         title: Text(
           _titles[_bottomNavIndex],
           style: GoogleFonts.lato(

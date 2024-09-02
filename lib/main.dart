@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(500, 800), // Moto G82 approximate dimensions
-      builder: (context, child) => GetMaterialApp(home:BloodDonationHomeScreen() ,
+      builder: (context, child) => GetMaterialApp(home:SplashScreen() ,
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
       ),
