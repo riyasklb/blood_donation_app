@@ -1,7 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:blood_donation_app/screen/donation_history_sceen.dart';
 import 'package:blood_donation_app/screen/donation_location_search_screen.dart';
-import 'package:blood_donation_app/screen/donation_sceduling_screen.dart';
 import 'package:blood_donation_app/screen/home_scree.dart';
 import 'package:blood_donation_app/screen/notification_screen.dart';
 import 'package:blood_donation_app/screen/profile_screen.dart';
@@ -42,7 +41,7 @@ class _BloodDonationHomeScreenState extends State<BloodDonationHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.white,
       appBar: AppBar(automaticallyImplyLeading: false,
         title: Text(
           _titles[_bottomNavIndex],
@@ -99,9 +98,10 @@ class _BloodDonationHomeScreenState extends State<BloodDonationHomeScreen> {
         activeColor: Colors.red,
         inactiveColor: Colors.grey,
         gapLocation: GapLocation.none,
-        notchSmoothness: NotchSmoothness.defaultEdge,
-        leftCornerRadius: 32,
-        rightCornerRadius: 32,
+        notchSmoothness: NotchSmoothness.smoothEdge,
+        // leftCornerRadius: 32,
+        // rightCornerRadius: 32,
+        // elevation: 1,
         onTap: (index) => setState(() => _bottomNavIndex = index),
       ),
     );

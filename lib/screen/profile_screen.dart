@@ -56,48 +56,52 @@ class ProfileScreen extends StatelessWidget {
             // User Date of Birth
             _buildProfileDetail('Date of Birth', 'January 1, 1990'),
             SizedBox(height: 32.h),
-            ElevatedButton(
-              onPressed: () {
-                Get.to(EditProfileScreen());
-              },
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 24.w),
-                backgroundColor: Colors.red,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.w),
+            Column(crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Get.to(EditProfileScreen());
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 24.w),
+                    backgroundColor: Colors.red,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.w),
+                    ),
+                    elevation: 5,
+                  ),
+                  child: Text(
+                    'Edit Profile',
+                    style: GoogleFonts.lato(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-                elevation: 5,
-              ),
-              child: Text(
-                'Edit Profile',
-                style: GoogleFonts.lato(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                SizedBox(height: 16.h),
+                ElevatedButton(
+                  onPressed: () {
+                    Get.off(OtpScreen());
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 24.w),
+                    backgroundColor: Colors.red,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.w),
+                    ),
+                    elevation: 5,
+                  ),
+                  child: Text(
+                    'Log Out',
+                    style: GoogleFonts.lato(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            SizedBox(height: 16.h),
-            ElevatedButton(
-              onPressed: () {
-                Get.off(OtpScreen());
-              },
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 24.w),
-                backgroundColor: Colors.red,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.w),
-                ),
-                elevation: 5,
-              ),
-              child: Text(
-                'Log Out',
-                style: GoogleFonts.lato(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
+              ],
             ),
           ],
         ),

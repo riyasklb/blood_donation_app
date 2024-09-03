@@ -1,6 +1,7 @@
 import 'package:blood_donation_app/screen/bottumn_nav_bar.dart';
 import 'package:blood_donation_app/screen/home_scree.dart';
 import 'package:blood_donation_app/screen/succes_screen.dart';
+import 'package:blood_donation_app/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -80,7 +81,7 @@ class OtpScreen extends StatelessWidget {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.r),
-                  borderSide: BorderSide(color: Colors.red, width: 2.0),
+                  borderSide: BorderSide(color: AppColors.primary,width: 2.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.r),
@@ -108,7 +109,7 @@ class OtpScreen extends StatelessWidget {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.r),
-                        borderSide: BorderSide(color: Colors.red, width: 2.0),
+                        borderSide: BorderSide(color: AppColors.primary,width: 2.0),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.r),

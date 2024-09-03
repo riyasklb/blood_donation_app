@@ -1,3 +1,4 @@
+import 'package:blood_donation_app/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -127,7 +128,7 @@ class EditProfileScreen extends StatelessWidget {
         TextField(
           controller: controller,
           decoration: InputDecoration(
-            prefixIcon: Icon(icon, color: Colors.red, size: 22.w),
+            prefixIcon: Icon(icon, color: AppColors.primary,size: 22.w),
             hintText: hint,
             contentPadding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 16.w),
             border: OutlineInputBorder(
