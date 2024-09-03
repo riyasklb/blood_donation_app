@@ -1,7 +1,9 @@
 import 'package:blood_donation_app/screen/bottumn_nav_bar.dart';
 import 'package:blood_donation_app/screen/home_scree.dart';
+import 'package:blood_donation_app/screen/succes_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,24 +13,47 @@ class OtpScreen extends StatelessWidget {
     return Scaffold(
       // Background color
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: Text(
-          'Enter OTP',
-          style: GoogleFonts.lato(
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        centerTitle: true, // Center the title
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.red,
+      //   title: Text(
+      //     'Enter OTP',
+      //     style: GoogleFonts.lato(
+      //       fontSize: 20.sp,
+      //       fontWeight: FontWeight.bold,
+      //       color: Colors.white,
+      //     ),
+      //   ),
+      //   centerTitle: true, // Center the title
+      // ),
       body: Padding(
         padding: EdgeInsets.all(16.0.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch, // Stretch to full width
+          crossAxisAlignment:
+              CrossAxisAlignment.stretch, // Stretch to full width
           children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [ Column(
+                  children: [
+                    SvgPicture.asset('assets/images/5423351_Mobile login.svg',height: 300.h,),
+                  //   Text(
+                  //   'Enter OTP',
+                  //   style: GoogleFonts.lato(
+                  //     fontSize: 24.sp,
+                  //     fontWeight: FontWeight.bold,
+                  //     color: Colors.black87,
+                  //   ),
+                  // ), 
+                  ],
+                ),
+               
+                ],
+              ),
+              
+            ),
             // Introductory text
             Text(
               'We have sent an OTP to your phone number.',
@@ -98,10 +123,11 @@ class OtpScreen extends StatelessWidget {
             // Gradient button
             ElevatedButton(
               onPressed: () {
-                Get.to(BloodDonationHomeScreen());
+                Get.to(SuccessScreen ());
               },
               style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(vertical: 14.h), backgroundColor: Colors.red,
+                padding: EdgeInsets.symmetric(vertical: 14.h),
+                backgroundColor: Colors.red,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.r),
                 ),
