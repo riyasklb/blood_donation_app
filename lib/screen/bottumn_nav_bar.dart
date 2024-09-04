@@ -11,12 +11,22 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BloodDonationHomeScreen extends StatefulWidget {
+  final int initialIndex;
+
+  BloodDonationHomeScreen({this.initialIndex = 0});
+
   @override
   _BloodDonationHomeScreenState createState() => _BloodDonationHomeScreenState();
 }
 
 class _BloodDonationHomeScreenState extends State<BloodDonationHomeScreen> {
-  int _bottomNavIndex = 0;
+  late int _bottomNavIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _bottomNavIndex = widget.initialIndex;
+  }
 
   final iconList = <IconData>[
     Icons.home,
@@ -41,8 +51,10 @@ class _BloodDonationHomeScreenState extends State<BloodDonationHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.white,
-      appBar: AppBar(automaticallyImplyLeading: false,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           _titles[_bottomNavIndex],
           style: GoogleFonts.lato(
@@ -57,8 +69,7 @@ class _BloodDonationHomeScreenState extends State<BloodDonationHomeScreen> {
                 icon: Icon(Icons.notifications, color: Colors.white),
                 onPressed: () {
                   Get.to(NotificationScreen());
-                  // Handle notification icon
-                  // press
+                  // Handle notification icon press
                 },
               ),
               Positioned(
@@ -99,9 +110,6 @@ class _BloodDonationHomeScreenState extends State<BloodDonationHomeScreen> {
         inactiveColor: Colors.grey,
         gapLocation: GapLocation.none,
         notchSmoothness: NotchSmoothness.smoothEdge,
-        // leftCornerRadius: 32,
-        // rightCornerRadius: 32,
-        // elevation: 1,
         onTap: (index) => setState(() => _bottomNavIndex = index),
       ),
     );

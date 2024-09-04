@@ -1,6 +1,7 @@
 import 'package:blood_donation_app/screen/bottumn_nav_bar.dart';
 import 'package:blood_donation_app/screen/edit_profile.dart';
 import 'package:blood_donation_app/screen/otp_screen.dart';
+import 'package:blood_donation_app/screen/settings_screeen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -82,7 +83,7 @@ class ProfileScreen extends StatelessWidget {
                 SizedBox(height: 16.h),
                 ElevatedButton(
                   onPressed: () {
-                    Get.off(OtpScreen());
+                    Get.to(SettingsScreen());
                   },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 24.w),
@@ -93,7 +94,7 @@ class ProfileScreen extends StatelessWidget {
                     elevation: 5,
                   ),
                   child: Text(
-                    'Log Out',
+                    'Settings',
                     style: GoogleFonts.lato(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.bold,

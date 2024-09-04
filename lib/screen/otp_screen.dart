@@ -124,7 +124,7 @@ class OtpScreen extends StatelessWidget {
             // Gradient button
             ElevatedButton(
               onPressed: () {
-                Get.to(SuccessScreen ());
+                Get.offAll(SuccessScreen ());
               },
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(vertical: 14.h),
