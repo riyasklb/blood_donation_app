@@ -1,4 +1,5 @@
 import 'package:blood_donation_app/theme/app_color.dart';
+import 'package:blood_donation_app/widget/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -86,7 +87,7 @@ class EditProfileScreen extends StatelessWidget {
           CircleAvatar(
             radius: 60.w,
             backgroundColor: Colors.grey[200],
-            backgroundImage: NetworkImage('https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=1024x1024&w=is&k=20&c=iGtRKCTRSvPVl3eOIpzzse5SvQFfImkV0TZuFh-74ps='),
+            backgroundImage:AppConstants.profileImage
           ),
           Positioned(
             bottom: 0,

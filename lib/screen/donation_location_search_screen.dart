@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'blood_bank_detail_screen.dart'; // Import the detail screen
 
 class LocationSearchScreen extends StatelessWidget {
   @override
@@ -66,12 +67,17 @@ class LocationSearchScreen extends StatelessWidget {
 
             // List of Blood Banks
             Expanded(
-              child: ListView(
-                children: [
-                  _buildBankCard('Red Cross Blood Bank', '123 Main St', '5.2 km away'),
-                  _buildBankCard('Local Blood Bank', '456 Elm St', '2.8 km away'),
-                  _buildBankCard('City Hospital Blood Bank', '789 Oak St', '4.1 km away'),
-                ],
+              child: ListView.builder(
+                itemCount: _bankData.length, // Use your data length here
+                itemBuilder: (context, index) {
+                  final bank = _bankData[index];
+                  return _buildBankCard(
+                    bank['name']!,
+                    bank['address']!,
+                    bank['distance']!,
+                    context,
+                  );
+                },
               ),
             ),
           ],
@@ -80,7 +86,7 @@ class LocationSearchScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildBankCard(String name, String address, String distance) {
+  Widget _buildBankCard(String name, String address, String distance, BuildContext context) {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 8.h),
       elevation: 4,
@@ -114,7 +120,25 @@ class LocationSearchScreen extends StatelessWidget {
           color: Colors.redAccent,
           size: 20.w,
         ),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => BloodBankDetailScreen(
+                name: name,
+                address: address,
+                distance: distance, phoneNumber: '', email: '',  hours: '',
+              ),
+            ),
+          );
+        },
       ),
     );
   }
 }
+
+const _bankData = [
+  {'name': 'Red Cross Blood Bank', 'address': '123 Main St', 'distance': '5.2 km away'},
+  {'name': 'Local Blood Bank', 'address': '456 Elm St', 'distance': '2.8 km away'},
+  {'name': 'City Hospital Blood Bank', 'address': '789 Oak St', 'distance': '4.1 km away'},
+];

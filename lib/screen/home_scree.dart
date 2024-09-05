@@ -2,6 +2,7 @@ import 'package:blood_donation_app/screen/blood_donate_screen.dart';
 import 'package:blood_donation_app/screen/donation_sceduling_screen.dart';
 import 'package:blood_donation_app/screen/find_user_screen.dart';
 import 'package:blood_donation_app/screen/request_for_blood.dart';
+import 'package:blood_donation_app/widget/app_constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -120,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 30.h), // Increased spacing for better UI
+                kheight30, // Increased spacing for better UI
             
                 // Buttons for Requesting Blood and Donating with Lottie animations
                 Row(
@@ -146,12 +147,13 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 30.h),
+                kheight30,
             
                 // Blood Request List
                 _buildBloodRequestTile('Anushka', '1 Unit (Blood)', 'Ernakulam', 'Critical', 'Thursday, Nov 21', context),
-
-  SizedBox(height: 30.h),
+                _buildBloodRequestTile('Murshi', '1 Unit (Blood)', 'Ernakulam', 'Critical', 'Thursday, Nov 21', context),
+  _buildBloodRequestTile('Riyas', '1 Unit (Blood)', 'Ernakulam', 'Normal', 'Thursday, Nov 21', context),
+  kheight30,
 
 
                 Row(
@@ -178,7 +180,7 @@ class HomeScreen extends StatelessWidget {
     ),
   ],
 ),
-  SizedBox(height: 30.h),
+  kheight30,
               ],
             ),
           ],
@@ -220,48 +222,99 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildBloodRequestTile(String name, String units, String location, String status, String date, BuildContext context) {
-    return Card(
-      margin: EdgeInsets.symmetric(vertical: 8.h),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.w),
-      ),
-      elevation: 4,
-      shadowColor: Colors.black26,
-      child: ListTile(
-        contentPadding: EdgeInsets.all(16.w),
-        leading: Icon(Icons.person, size: 40.w, color: Colors.redAccent),
-        title: Text(
-          name,
-          style: GoogleFonts.montserrat(fontSize: 18.sp, fontWeight: FontWeight.bold),
+Widget _buildBloodRequestTile(String name, String units, String location, String status, String date, BuildContext context) {
+  return Card(
+    margin: EdgeInsets.symmetric(vertical: 8.h, horizontal: 8.w),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12.w),
+    ),
+    elevation: 5,
+    shadowColor: Colors.black26,
+    child: ListTile(
+      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+      leading: Container(
+        padding: EdgeInsets.all(10.w),
+        decoration: BoxDecoration(
+          color: status == 'Critical' ? Colors.redAccent.withOpacity(0.2) : Colors.green.withOpacity(0.2),
+          shape: BoxShape.circle,
         ),
-        subtitle: Column(
+        child:          CircleAvatar(backgroundImage:AppConstants.profileImage ,),
+
+      ),
+      title: Text(
+        name,
+        style: GoogleFonts.montserrat(
+          fontSize: 18.sp,
+          fontWeight: FontWeight.bold,
+          color: Colors.black87,
+        ),
+      ),
+      subtitle: Padding(
+        padding: EdgeInsets.only(top: 4.h),
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(units),
-            Text(location),
-            Text(date),
+            Text(
+              'Units Required: $units',
+              style: GoogleFonts.montserrat(
+                fontSize: 14.sp,
+                color: Colors.grey[700],
+              ),
+            ),
+            SizedBox(height: 4.h),
+            Row(
+              children: [
+                Icon(Icons.location_on, size: 16.w, color: Colors.redAccent),
+                SizedBox(width: 4.w),
+                Expanded(
+                  child: Text(
+                    location,
+                    style: GoogleFonts.montserrat(
+                      fontSize: 14.sp,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 4.h),
+            Row(
+              children: [
+                Icon(Icons.calendar_today, size: 16.w, color: Colors.redAccent),
+                SizedBox(width: 4.w),
+                Text(
+                  date,
+                  style: GoogleFonts.montserrat(
+                    fontSize: 14.sp,
+                    color: Colors.grey[700],
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
-        trailing: ElevatedButton(
-          onPressed: () {
-            // Handle accept action
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: status == 'Critical' ? Colors.red : Colors.green,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.w),
-            ),
+      ),
+      trailing: ElevatedButton(
+        onPressed: () {
+          // Handle accept action
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: status == 'Critical' ? Colors.redAccent : Colors.green,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.w),
           ),
-          child: Text(
-            status,
-            style: GoogleFonts.montserrat(
-              fontSize: 14.sp,
-              color: Colors.white,
-            ),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+        ),
+        child: Text(
+          status,
+          style: GoogleFonts.montserrat(
+            fontSize: 14.sp,
+            color: Colors.white,
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
 }
